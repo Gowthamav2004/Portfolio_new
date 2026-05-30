@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none">
+  <!-- G letter -->
+  <path d="M 18 20 A 52 52 0 1 0 90 72 L 90 55 L 58 55 L 58 68 L 74 68 L 74 72 A 38 38 0 1 1 80 34 L 94 24 A 52 52 0 0 0 18 20 Z" fill="#1d5080"/>
+  <!-- V letter -->
+  <polygon points="105,15 130,90 155,15 170,15 140,110 120,110 90,15" fill="#1d5080"/>
+  <!-- Underline bar -->
+  <rect x="12" y="120" width="176" height="10" rx="3" fill="#1d5080"/>
+</svg>

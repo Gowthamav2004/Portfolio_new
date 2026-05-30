@@ -1,0 +1,283 @@
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-glass: rgba(10, 10, 10, 0.6);
+  --bg-glass-border: rgba(255, 255, 255, 0.05);
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-1: #3b82f6;
+  --accent-2: #8b5cf6;
+  --accent-3: #10b981;
+  --gradient-text: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  --gradient-bg: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1), rgba(16, 185, 129, 0.1));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--text-secondary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-primary); }
+
+/* ─── Container ─────────────────────────────── */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 100%;
+}
+
+@media (max-width: 1024px) { .container { padding: 0 2.5rem; } }
+@media (max-width: 768px)  { .container { padding: 0 1.25rem; } }
+
+/* ─── Typography ─────────────────────────────── */
+.super-title {
+  font-size: clamp(2.8rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.massive-text {
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 900px;
+}
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* ─── Sections ───────────────────────────────── */
+.cinematic-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 6rem 0 4rem;
+  border-bottom: 1px solid var(--bg-glass-border);
+}
+
+@media (max-width: 768px) {
+  .cinematic-section {
+    min-height: auto;
+    padding: 5rem 0 3rem;
+    align-items: flex-start;
+  }
+}
+
+/* ─── Cards ──────────────────────────────────── */
+.cinematic-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.card-expansive {
+  background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(10,10,10,0.4) 100%);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 768px) {
+  .card-expansive {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+}
+
+.card-expansive:hover {
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  transform: translateY(-3px);
+}
+
+/* ─── Background blobs ───────────────────────── */
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  z-index: -2;
+  opacity: 0.15;
+  animation: float 35s infinite alternate ease-in-out;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.bg-blob-1 {
+  top: -20%; left: -10%; width: 70vw; height: 70vw;
+  background: radial-gradient(circle, rgba(59,130,246,0.4) 0%, transparent 70%);
+}
+.bg-blob-2 {
+  bottom: -20%; right: -10%; width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%);
+  animation-delay: -10s;
+}
+.bg-blob-3 {
+  top: 40%; left: 30%; width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(16,185,129,0.2) 0%, transparent 70%);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(10vw, -10vh) scale(1.1); }
+  100% { transform: translate(-5vw, 15vh) scale(0.9); }
+}
+
+/* ─── Buttons ────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: #ffffff;
+  color: #000000;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255,255,255,0.2);
+}
+
+/* ─── Hide scrollbar utility ─────────────────── */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Mobile: hide side nav & right social bar, show hamburger ── */
+.hamburger-btn { display: none !important; }
+@media (max-width: 768px) {
+  .side-nav-desktop  { display: none !important; }
+  .social-bar-desktop { display: none !important; }
+  .hamburger-btn { display: block !important; }
+}
+
+/* ─── Mobile nav drawer ──────────────────────── */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mobile-nav-overlay a,
+.mobile-nav-overlay button.nav-link {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
+  padding: 0.3rem 0;
+}
+
+.mobile-nav-overlay a:hover,
+.mobile-nav-overlay button.nav-link:hover {
+  color: var(--accent-1);
+}
+
+/* Social icons row inside mobile nav */
+.mobile-social-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* ─── Hero section mobile fixes ──────────────── */
+@media (max-width: 768px) {
+  .hero-image-col { display: none; }
+
+  .hero-text-col h1 {
+    font-size: clamp(2.4rem, 10vw, 3.5rem) !important;
+  }
+}
+
+/* ─── Experience / project cards mobile ──────── */
+@media (max-width: 768px) {
+  .exp-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .exp-card-header h3 {
+    font-size: 1.4rem !important;
+  }
+
+  .exp-logo {
+    height: 40px !important;
+  }
+}
+
+/* ─── Skills grid mobile ─────────────────────── */
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Section title mobile ───────────────────── */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 2rem;
+  }
+}
